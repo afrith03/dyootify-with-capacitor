@@ -94,6 +94,7 @@ function SongContent({loadedSongs, setloadedSongs}) {
         <p> {currentTime == null ? "00:00" : currentTime}</p>
         <input
           type="range"
+          onDragEnd={sliderChange}
           onChange={sliderChange}
           value={rangeValue}
           min={0}
