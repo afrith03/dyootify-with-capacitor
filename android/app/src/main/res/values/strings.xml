@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">dyootify</string>
+    <string name="title_activity_main">dyootify</string>
+    <string name="package_name">com.dyootify.app</string>
+    <string name="custom_url_scheme">com.dyootify.app</string>
+</resources>
