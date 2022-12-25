@@ -7,9 +7,13 @@ module.exports = {
       colorlg: "#df9ad2",
       colormd: "#814eae",
       colorsm: "#E5B8F4",
-      colorctr :"#dbc3c2"
+      colorctr :"#dbc3c2",
+      colormddk:'#36498f',
+      colorlgdk:'#2d7c9d',
+      colorsmdk:'	#cccccc',
+      pillColor:'#161d20'
     },
     extend: {},
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar-hide')],
 };

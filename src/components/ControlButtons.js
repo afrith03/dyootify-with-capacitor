@@ -5,7 +5,7 @@ import {
   BsPauseFill,
   BsShuffle,
 } from "react-icons/bs";
-import { BiSkipPrevious, BiSkipNext, BiUpArrowAlt } from "react-icons/bi";
+import { BiSkipPrevious, BiSkipNext } from "react-icons/bi";
 function ControlButtons({
   currentIndex,
   loadedSongs,
@@ -18,12 +18,13 @@ function ControlButtons({
   setisShuffle,
   nextSong,
   prevSong,
+  darkMode,
 }) {
   return (
-    <div className="absolute w-full bottom-28 lg:w-64 lg:bottom-0 lg:right-80">
-      <div className="flex justify-between items-center text-5xl p-2 px-4 mt-7 text-colorctr">
+    <div className="absolute w-full bottom-28 lg:w-72 lg:bottom-0 xl:right-80 lg:right-44">
+      <div className="flex justify-between items-center text-5xl p-2 px-6 mt-7 text-colorctr">
         <BsArrowRepeat
-          className={`text-4xl ${isLooping ? "text-colormd" : ""}`}
+          className={`text-4xl ${isLooping ? darkMode?"text-colormd":" text-colorlgdk" : ""}`}
           onClick={() => {
             isShuffle && setisShuffle(false);
             setisLooping(!isLooping);
@@ -41,7 +42,7 @@ function ControlButtons({
           onClick={nextSong}
         />
         <BsShuffle
-          className={`text-4xl ${isShuffle ? "text-colormd" : ""}`}
+          className={`text-4xl ${isShuffle ?  darkMode?"text-colormd":" text-colorlgdk" : ""}`}
           onClick={() => {
             isLooping && setisLooping(false);
             setisShuffle(!isShuffle);

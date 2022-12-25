@@ -1,15 +1,91 @@
-import React from 'react'
-import { BsMusicNoteList,BsThreeDots } from "react-icons/bs";
-function Navbar() {
+import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { BsMusicNoteList } from "react-icons/bs";
+
+function Navbar({ darkMode, setdarkMode }) {
+  const [aboutus, setaboutus] = useState(false);
   return (
     <>
-    <div className='flex justify-between items-center w-full text-2xl p-3'
-    >
-<BsMusicNoteList/>
-<BsThreeDots/>
-
-    </div>
-    </>)
+      <div className="flex justify-between items-center w-full text-2xl p-3">
+        <BsMusicNoteList
+          className="text-colorctr"
+          onClick={() => {
+            setaboutus(!aboutus);
+          }}
+        />
+        {/* <BsThreeDots/> */}
+        <label className="switch">
+          <input
+            type="checkbox"
+            onClick={() => {
+              setdarkMode(!darkMode);
+              console.log(darkMode);
+            }}
+            checked={darkMode}
+          />
+          <span className="slider" />
+        </label>
+      </div>
+      {/* about us modal  */}
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        className={`absolute ${
+          aboutus ? "visible" : "hidden"
+        } bg-colorsmdk rounded-md w-80 h-auto`}
+      >
+        <div className="p-3">
+          <h2 className="text-center font-bold">About Us</h2>
+          <p>
+            <b> Front-end:</b>{" "}
+            <a
+              className="text-colormddk"
+              href="https://afrithshariff.me"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Afrith Shariff
+            </a>
+            <br />
+            <b> Back-end: </b>
+            <a
+              className="text-colormddk"
+              href="https://www.linkedin.com/in/shanawaz-sk-297549235/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Shanawaz SK{" "}
+            </a>
+            <br />
+            Tecnologies used to build this project -
+            React.js,Node.js,Capacitor.js,Tailwindcss
+            <br />
+            <i>
+              All Source-code availabe at Github <br />
+              <a
+                className="text-colormddk"
+                target="_blank"
+                href="https://github.com/afrith03/dyootify-with-capacitor"
+                rel="noopener noreferrer"
+              >
+                fron-end
+              </a>{" "}
+              &
+              <a
+                className="text-colormddk"
+                href="https://github.com/shanawaz-Git/dyootify-server"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {" "}
+                back-end
+              </a>
+            </i>
+          </p>
+        </div>
+      </motion.div>
+    </>
+  );
 }
 
-export default Navbar
+export default Navbar;

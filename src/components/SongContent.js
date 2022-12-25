@@ -3,8 +3,8 @@ import SongSelector from "./SongSelector";
 import SlidernAudio from "./SlidernAudio";
 import ControlButtons from "./ControlButtons";
 
-function SongContent({ loadedSongs, setloadedSongs, loadCustomSongs }) {
-  const [currentIndex, setcurrentIndex] = useState(0);
+function SongContent({ loadedSongs, setloadedSongs, loadCustomSongs ,currentIndex, setcurrentIndex,darkMode}) {
+  // const [currentIndex, setcurrentIndex] = useState(0);
   const [isPlaying, setisPlaying] = useState(false);
 
   //selected song through modal
@@ -111,10 +111,19 @@ function SongContent({ loadedSongs, setloadedSongs, loadCustomSongs }) {
     }
   };
 
+//  const removeAdText = (text)=>{
+//     text.replace(
+//       /blue|MassTamilan.dev|-|isaitamilan.co|SenSongsMp3.Com|PaglaSongs.Com|\(PaglaSongs\)|:/gi,
+//       function (x) {
+//         return " ";
+//       }
+//     )
+//   }
+
   return (
-    <div className=" lg:px-80">
+    <div className=" lg:px-80 xl:px-96">
       {/* Image cover  imageUrl */}
-      <div className="bg-white w-[75%] h-80 lg:w-48 lg:h-48 m-auto mt-10 rounded-2xl shadow-2xl">
+      <div className="bg-white w-[80%] h-[40vh] lg:w-48 lg:h-48 xl:w-80 xl:h-80 m-auto mt-10 md:mt-2 rounded-2xl shadow-2xl">
         <img
           src={loadedSongs[currentIndex].imageUrl}
           className="h-full w-full object-cover rounded-2xl shadow-3xl"
@@ -124,10 +133,10 @@ function SongContent({ loadedSongs, setloadedSongs, loadCustomSongs }) {
       {/* Image cover end */}
       {/* <button onClick={metadata}>Meta demo</button> */}
 
-      <div className="text-center mt-10  text-colorlg">
+      <div className={`text-center mt-10 ${darkMode ? "text-colorlg":"text-colorlgdk"}` }>
         <h2 className="text-3xl leading-10 font-bold">
           {loadedSongs[currentIndex].fileTitle.replace(
-            /blue|MassTamilan.dev|-|isaitamilan.co|SenSongsMp3.Com|:/gi,
+            /blue|MassTamilan.dev|-|isaitamilan.co|SenSongsMp3.Com|PaglaSongs.Com|\(PaglaSongs\)|:/gi,
             function (x) {
               return " ";
             }
@@ -160,6 +169,7 @@ function SongContent({ loadedSongs, setloadedSongs, loadCustomSongs }) {
         randomNumber={randomNumber}
         isLooping={isLooping}
         isShuffle={isShuffle}
+        darkMode={darkMode}
       />
       {/* Silder  */}
 
@@ -176,6 +186,7 @@ function SongContent({ loadedSongs, setloadedSongs, loadCustomSongs }) {
         isShuffle={isShuffle}
         setisLooping={setisLooping}
         setisShuffle={setisShuffle}
+        darkMode={darkMode}
       />
       {/* control buttons end */}
 
@@ -187,6 +198,7 @@ function SongContent({ loadedSongs, setloadedSongs, loadCustomSongs }) {
         loadedSongs={loadedSongs}
         currentIndex={currentIndex}
         setcurrentIndex={setcurrentIndex}
+        darkMode={darkMode}
       />
       {/* song selection end */}
     </div>
