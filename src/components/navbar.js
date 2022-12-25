@@ -1,3 +1,4 @@
+import { click } from "@testing-library/user-event/dist/click";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { BsMusicNoteList } from "react-icons/bs";
@@ -11,8 +12,20 @@ function Navbar({ darkMode, setdarkMode }) {
           className="text-colorctr"
           onClick={() => {
             setaboutus(!aboutus);
+            // window.addEventListener("click", () => {
+            //   setaboutus(false);
+            // });
           }}
         />
+        <a href="/app.apk" download={true}>
+          <button
+            class={`hidden lg:block px-4 py-2 ${
+              darkMode ? "bg-colormd" : "bg-colorlgdk"
+            }  text-white text-sm font-medium rounded-full`}
+          >
+            Download Andriod
+          </button>
+        </a>
         {/* <BsThreeDots/> */}
         <label className="switch">
           <input
@@ -59,6 +72,8 @@ function Navbar({ darkMode, setdarkMode }) {
             <br />
             Tecnologies used to build this project -
             React.js,Node.js,Capacitor.js,Tailwindcss
+            <br />
+            special thanks to Arun {"(panda)"}
             <br />
             <i>
               All Source-code availabe at Github <br />

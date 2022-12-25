@@ -142,7 +142,9 @@ function SongSelector({
               </h4>
             </div>
             <img
-              className="w-12 h-12 rounded-md"
+              className="rounded-md"
+              height={"48px"}
+              width={"48px"}
               // src="https://images.unsplash.com/photo-1671180895327-e5a3eee7bae4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
               src={song.imageUrl}
               alt="list preview album"
