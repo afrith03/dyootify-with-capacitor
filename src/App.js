@@ -124,11 +124,9 @@ function App() {
     setloading(false);
     axios
       .get(
-        "https://dyootify-server.vercel.app/getsongs",{
-          // data: {
-            language:"telugu"
-          // }
-        }
+        "https://dyootify-server.vercel.app/getsongs",{ data: {
+        language:'telugu'
+        }}
       )
       .then(function (response) {
         // handle success

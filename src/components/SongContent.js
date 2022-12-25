@@ -58,7 +58,6 @@ function SongContent({ loadedSongs, setloadedSongs, loadCustomSongs }) {
   //   }, 1000);
   //   return () => clearInterval(interval);
   // }, []);
- 
 
   useEffect(() => {
     if (isPlaying) {
@@ -79,10 +78,43 @@ function SongContent({ loadedSongs, setloadedSongs, loadCustomSongs }) {
       `${isNaN(totalMin) ? "0" : totalMin}:${isNaN(totalSec) ? "00" : totalSec}`
     );
   });
+
+  // control button functions
+  const randomNumber = () => {
+    let x = Math.floor(Math.random() * loadedSongs.length - 1) + 1;
+    return x;
+  };
+
+  const nextSong = () => {
+    if (isShuffle) {
+      let newIndex = randomNumber();
+      if (newIndex === currentIndex) {
+        newIndex = randomNumber();
+      }
+      // console.log(newIndex);
+      setcurrentIndex(newIndex === currentIndex ? randomNumber() : newIndex);
+      return;
+    } else if (currentIndex > loadedSongs.length - 2) {
+      setcurrentIndex(0);
+    } else {
+      setcurrentIndex(currentIndex + 1);
+      console.log(currentIndex);
+    }
+    console.log(loadedSongs.length - 1);
+  };
+  const prevSong = () => {
+    if (currentIndex <= 0) {
+      setcurrentIndex(loadedSongs.length - 1);
+    } else {
+      setcurrentIndex(currentIndex - 1);
+      console.log(currentIndex);
+    }
+  };
+
   return (
     <div className=" lg:px-80">
       {/* Image cover  imageUrl */}
-      <div className="bg-white w-[75%] h-auto lg:w-60 m-auto mt-10 rounded-2xl shadow-2xl">
+      <div className="bg-white w-[75%] h-auto lg:w-48 m-auto mt-10 rounded-2xl shadow-2xl">
         <img
           src={loadedSongs[currentIndex].imageUrl}
           className="h-full w-full object-cover rounded-2xl shadow-3xl"
@@ -124,11 +156,17 @@ function SongContent({ loadedSongs, setloadedSongs, loadCustomSongs }) {
         rangeValue={rangeValue}
         maxSliderValue={maxSliderValue}
         songDuration={songDuration}
+        setcurrentIndex={setcurrentIndex}
+        randomNumber={randomNumber}
+        isLooping={isLooping}
+        isShuffle={isShuffle}
       />
       {/* Silder  */}
 
       {/* control buttons  */}
       <ControlButtons
+        nextSong={nextSong}
+        prevSong={prevSong}
         currentIndex={currentIndex}
         loadedSongs={loadedSongs}
         setcurrentIndex={setcurrentIndex}

@@ -16,6 +16,8 @@ function ControlButtons({
   isShuffle,
   setisLooping,
   setisShuffle,
+  nextSong,
+  prevSong,
 }) {
   return (
     <div className="absolute w-full bottom-28 lg:w-64 lg:bottom-0 lg:right-80">
@@ -28,14 +30,7 @@ function ControlButtons({
           }}
         />
         <BiSkipPrevious
-          onClick={() => {
-            if (currentIndex < loadedSongs.length - 1) {
-              setcurrentIndex(1);
-            } else {
-              setcurrentIndex(currentIndex - 1);
-              console.log(currentIndex);
-            }
-          }}
+          onClick={prevSong}
         />
         {isPlaying ? (
           <BsPauseFill className="text-6xl" onClick={togglePlay} />
@@ -43,15 +38,7 @@ function ControlButtons({
           <BsFillPlayFill className="text-6xl" onClick={togglePlay} />
         )}
         <BiSkipNext
-          onClick={() => {
-            if (currentIndex > loadedSongs.length - 2) {
-              setcurrentIndex(0);
-            } else {
-              setcurrentIndex(currentIndex + 1);
-              console.log(currentIndex);
-            }
-            console.log(loadedSongs.length - 1);
-          }}
+          onClick={nextSong}
         />
         <BsShuffle
           className={`text-4xl ${isShuffle ? "text-colormd" : ""}`}

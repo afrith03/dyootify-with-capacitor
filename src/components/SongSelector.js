@@ -1,5 +1,6 @@
 import React from 'react'
 import { BiUpArrowAlt } from "react-icons/bi";
+import { motion } from "framer-motion"
 
 function SongSelector({setopenCloseModal,openCloseModal,loadedSongs,currentIndex,setcurrentIndex,loadCustomSongs}) {
   return (
@@ -29,7 +30,9 @@ function SongSelector({setopenCloseModal,openCloseModal,loadedSongs,currentIndex
       <BiUpArrowAlt />
     </div>
     {/* song scroll */}
-    <div
+    <motion.div 
+     initial={{ opacity: 0 }}
+     animate={{ opacity: 1 }}
       className={openCloseModal ? "block overflow-y-scroll scroll-m-0 scroll-p-0 stroke-colorxl h-96" : "hidden"}
     >
       <div>
@@ -68,7 +71,7 @@ function SongSelector({setopenCloseModal,openCloseModal,loadedSongs,currentIndex
           />
         </div>
       ))}
-    </div>
+    </motion.div>
     {/* song scroll end */}
   </div>
   )
