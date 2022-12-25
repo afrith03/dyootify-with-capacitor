@@ -30,23 +30,25 @@ function SongSelector({
         />
         <div>
           <h3 className="text-xl font-bold">
-            {loadedSongs[currentIndex].fileTitle.replace(
-              /blue|MassTamilan.dev|-|isaitamilan.co|SenSongsMp3.Com|\(PaglaSongs\)|:/gi,
-              function (x) {
-                return " ";
-              }
-            )}
-          </h3>
-          <h4 className="text-lg font-semibold">
-            {loadedSongs[currentIndex].fileArtist
-              .slice(0, 14)
+            {loadedSongs[currentIndex].fileTitle
               .replace(
-                /blue|MassTamilan.dev|-|isaitamilan.co|SenSongsMp3.Com|:/gi,
+                /blue|MassTamilan.dev|-|isaitamilan.co|SenSongsMp3.Com|\(PaglaSongs\)|MassTamilan.fm|MassTamilan.io|:/gi,
                 function (x) {
                   return " ";
                 }
-              )}
-            ... | {loadedSongs[currentIndex].language}
+              )
+              .slice(0, 19)}
+          </h3>
+          <h4 className="text-lg font-semibold">
+            {loadedSongs[currentIndex].fileArtist
+              .replace(
+                /blue|MassTamilan.dev|-|isaitamilan.co|SenSongsMp3.Com|MassTamilan.fm|MassTamilan.io|:/gi,
+                function (x) {
+                  return " ";
+                }
+              )
+              .slice(0, 14)}
+            | {loadedSongs[currentIndex].language}
           </h4>
         </div>
         {openCloseModal ? <BiDownArrowAlt /> : <BiUpArrowAlt />}
@@ -124,21 +126,26 @@ function SongSelector({
           >
             <div className="">
               <h3 className="text-xl font-bold text-left">
-                {song.fileTitle.replace(
-                  /blue|MassTamilan.dev|-|isaitamilan.co|SenSongsMp3.Com|\(PaglaSongs\)|:/gi,
-                  function (x) {
-                    return " ";
-                  }
-                )}
-              </h3>
-              <h4 className="text-lg font-semibold">
-                {song.fileArtist.slice(0, 18) +
-                  "...".replace(
-                    /blue|MassTamilan.dev|-|isaitamilan.co|SenSongsMp3.Com|\(PaglaSongs\)|:/gi,
+                {song.fileTitle
+                  .replace(
+                    /blue|MassTamilan.dev|-|isaitamilan.co|SenSongsMp3.Com|\(PaglaSongs\)|MassTamilan.fm|MassTamilan.io|:/gi,
                     function (x) {
                       return " ";
                     }
-                  )}
+                  )
+                  .slice(0, 23)}
+                ...
+              </h3>
+              <h4 className="text-lg font-normal">
+                {song.fileArtist.slice(0, 18) +
+                  "..."
+                    .replace(
+                      /blue|MassTamilan.dev|-|isaitamilan.co|SenSongsMp3.Com|\(PaglaSongs\)|MassTamilan.fm|MassTamilan.io|:/gi,
+                      function (x) {
+                        return " ";
+                      }
+                    )
+                    .slice(0, 14)}
               </h4>
             </div>
             <img

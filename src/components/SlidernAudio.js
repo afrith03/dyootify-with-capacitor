@@ -51,7 +51,7 @@ function SlidernAudio({
         onTimeUpdate={handleTimeUpdate}
       ></audio>
 
-      <div className="flex justify-between items-center p-2 mt-8 text-colorctr">
+      <div className="flex justify-between items-center p-2 mt-[5vh] text-colorctr">
         <p> {currentTime == null ? "00:00" : currentTime}</p>
         <input
           type="range"

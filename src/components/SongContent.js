@@ -123,7 +123,7 @@ function SongContent({ loadedSongs, setloadedSongs, loadCustomSongs ,currentInde
   return (
     <div className=" lg:px-80 xl:px-96">
       {/* Image cover  imageUrl */}
-      <div className={`bg-white w-[80%] h-[40vh] lg:w-48 lg:h-48 m-auto mt-10 md:mt-2 rounded-2xl shadow-2xl`}>
+      <div className={`bg-white w-[80%] h-[34vh]  lg:w-48 lg:h-48 m-auto mt-[3vh] md:mt-2 rounded-2xl shadow-2xl`}>
         <img
           src={loadedSongs[currentIndex].imageUrl}
           className="h-full w-full object-cover rounded-2xl shadow-2xl"
@@ -133,23 +133,23 @@ function SongContent({ loadedSongs, setloadedSongs, loadCustomSongs ,currentInde
       {/* Image cover end */}
       {/* <button onClick={metadata}>Meta demo</button> */}
 
-      <div className={`text-center mt-10 ${darkMode ? "text-colorlg":"text-colorlgdk"}` }>
+      <div className={`text-center mt-[4vh] ${darkMode ? "text-colorlg":"text-colorlgdk"}` }>
         <h2 className="text-3xl leading-10 font-bold">
           {loadedSongs[currentIndex].fileTitle.replace(
-            /blue|MassTamilan.dev|-|isaitamilan.co|SenSongsMp3.Com|PaglaSongs.Com|\(PaglaSongs\)|:/gi,
+            /blue|MassTamilan.dev|-|isaitamilan.co|SenSongsMp3.Com|PaglaSongs.Com|\(PaglaSongs\)|MassTamilan.fm|MassTamilan.io|:/gi,
             function (x) {
               return " ";
             }
-          )}
+          ).slice(0, 17)}
         </h2>
         <h4 className="text-xl leading-10 font-semibold">
           {/* slice(0, 20) */}
           {loadedSongs[currentIndex].fileArtist.replace(
-            /blue|MassTamilan.dev|-|isaitamilan.co|SenSongsMp3.Com|:/gi,
+            /blue|MassTamilan.dev|-|isaitamilan.co|SenSongsMp3.Com|MassTamilan.fm|MassTamilan.io|:/gi,
             function (x) {
               return " ";
             }
-          )}
+          ).slice(0, 27)}
         </h4>
       </div>
       {/* Song details  */}
