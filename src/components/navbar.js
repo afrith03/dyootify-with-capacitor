@@ -97,6 +97,15 @@ function Navbar({ darkMode, setdarkMode }) {
               </a>
             </i>
           </p>
+          <a href="/app.apk" download={true}>
+          <button
+            class={`m-1 px-4 py-2 ${
+              darkMode ? "bg-colormd" : "bg-colorlgdk"
+            }  text-white text-sm font-medium rounded-full`}
+          >
+            Download Andriod
+          </button>
+        </a>
         </div>
       </motion.div>
     </>
