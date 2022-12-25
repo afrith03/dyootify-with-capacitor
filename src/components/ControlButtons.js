@@ -21,7 +21,7 @@ function ControlButtons({
 }) {
   return (
     <div className="absolute w-full bottom-28 lg:w-64 lg:bottom-0 lg:right-80">
-      <div className="flex justify-between items-center text-5xl p-2 px-4 mt-7">
+      <div className="flex justify-between items-center text-5xl p-2 px-4 mt-7 text-colorctr">
         <BsArrowRepeat
           className={`text-4xl ${isLooping ? "text-colormd" : ""}`}
           onClick={() => {

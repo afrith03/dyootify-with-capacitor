@@ -38,9 +38,9 @@ function SlidernAudio({
 
   useEffect(() => {
     audioElement.current.addEventListener("ended", handleSongEnded);
-    return () => {
-      audioElement.current.removeEventListener("ended", handleSongEnded);
-    };
+    // return () => {
+    //  audioElement.current.removeEventListener("ended", handleSongEnded);
+    // };
   }, []);
 
   return (
@@ -51,7 +51,7 @@ function SlidernAudio({
         onTimeUpdate={handleTimeUpdate}
       ></audio>
 
-      <div className="flex justify-between items-center p-2 mt-8">
+      <div className="flex justify-between items-center p-2 mt-8 text-colorctr">
         <p> {currentTime == null ? "00:00" : currentTime}</p>
         <input
           type="range"
