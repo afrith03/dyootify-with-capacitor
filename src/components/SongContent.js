@@ -123,7 +123,7 @@ function SongContent({ loadedSongs, setloadedSongs, loadCustomSongs ,currentInde
   return (
     <div className=" lg:px-80 xl:px-96">
       {/* Image cover  imageUrl */}
-      <div className="bg-white w-[80%] h-[40vh] lg:w-48 lg:h-48 xl:w-80 xl:h-80 m-auto mt-10 md:mt-2 rounded-2xl shadow-2xl">
+      <div className="bg-white w-[80%] h-[40vh] lg:w-48 lg:h-48 m-auto mt-10 md:mt-2 rounded-2xl shadow-2xl">
         <img
           src={loadedSongs[currentIndex].imageUrl}
           className="h-full w-full object-cover rounded-2xl shadow-3xl"
