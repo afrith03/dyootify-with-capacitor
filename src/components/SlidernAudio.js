@@ -42,9 +42,9 @@ function SlidernAudio({
 
   useEffect(() => {
     audioElement.current.addEventListener("ended", handleSongEnded);
-    return () => {
-      audioElement.current.removeEventListener("ended", handleSongEnded);
-    };
+    // return () => {
+    //   audioElement.current.removeEventListener("ended", handleSongEnded);
+    // };
   }, []);
 
   return (

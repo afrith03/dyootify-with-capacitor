@@ -10,7 +10,7 @@ function Navbar({ darkMode, setdarkMode }) {
       <div className="flex justify-between items-center w-full text-2xl p-3">
         <BsMusicNoteList
           className="text-colorctr"
-          onClick={() => {
+          onChange={() => {
             setaboutus(!aboutus);
             // window.addEventListener("click", () => {
             //   setaboutus(false);
@@ -73,7 +73,7 @@ function Navbar({ darkMode, setdarkMode }) {
             Tecnologies used to build this project -
             React.js,Node.js,Capacitor.js,Tailwindcss
             <br />
-            special thanks to Arun {"(panda)"}
+            special thanks to <a href="https://www.linkedin.com/in/arunprasad97/" target="_blank" rel="noopener noreferrer">Arun {"(panda)"}</a> 
             <br />
             <i>
               All Source-code availabe at Github <br />
@@ -83,7 +83,7 @@ function Navbar({ darkMode, setdarkMode }) {
                 href="https://github.com/afrith03/dyootify-with-capacitor"
                 rel="noopener noreferrer"
               >
-                fron-end
+                front-end
               </a>{" "}
               &
               <a
@@ -99,7 +99,7 @@ function Navbar({ darkMode, setdarkMode }) {
           </p>
           <a href="/app.apk" download={true}>
           <button
-            class={`m-1 px-4 py-2 ${
+            className={`m-1 px-4 py-2 ${
               darkMode ? "bg-colormd" : "bg-colorlgdk"
             }  text-white text-sm font-medium rounded-full`}
           >

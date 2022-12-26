@@ -22,6 +22,7 @@ function App() {
         // handle success
         console.log(response.data);
         setloadedSongs(response.data);
+        setcurrentIndex(0);
         setloading(true);
       })
       .catch(function (error) {
