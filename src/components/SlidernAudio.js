@@ -16,31 +16,35 @@ function SlidernAudio({
   isShuffle,
 }) {
   const handleSongEnded = () => {
-    if (isShuffle) {
-      let newIndex = randomNumber();
-      if (newIndex === currentIndex) {
-        newIndex = randomNumber();
-      }
-      // console.log(newIndex);
-      setcurrentIndex(newIndex === currentIndex ? randomNumber() : newIndex);
+    if (isLooping === true) {
+      // setcurrentIndex(currentIndex);
+      console.log("looping is on" + currentIndex);
       return;
-    } else if (isLooping) {
-      setcurrentIndex(currentIndex);
-      return;
-    } else if (currentIndex > loadedSongs.length - 2) {
-      setcurrentIndex(0);
     } else {
-      setcurrentIndex(currentIndex + 1);
-      console.log(currentIndex);
+      if (isShuffle === true) {
+        let newIndex = randomNumber();
+        if (newIndex === currentIndex) {
+          newIndex = randomNumber();
+        }
+        // console.log(newIndex);
+        setcurrentIndex(newIndex === currentIndex ? randomNumber() : newIndex);
+        return;
+      } else if (currentIndex > loadedSongs.length - 2) {
+        setcurrentIndex(0);
+      } else {
+        setcurrentIndex(currentIndex + 1);
+        console.log(currentIndex);
+      }
     }
+
     console.log(loadedSongs.length - 1);
   };
 
   useEffect(() => {
     audioElement.current.addEventListener("ended", handleSongEnded);
-    // return () => {
-    //  audioElement.current.removeEventListener("ended", handleSongEnded);
-    // };
+    return () => {
+      audioElement.current.removeEventListener("ended", handleSongEnded);
+    };
   }, []);
 
   return (

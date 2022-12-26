@@ -40,6 +40,7 @@ function SongContent({ loadedSongs, setloadedSongs, loadCustomSongs ,currentInde
     }
     setcurrentTime(`${currentMin}:${currentSec}`);
     setRangeValue(audioElement.current.currentTime);
+    console.log(currentIndex)
     //  console.log(`Progress: ${progress}%`);
   };
 
@@ -123,7 +124,12 @@ function SongContent({ loadedSongs, setloadedSongs, loadCustomSongs ,currentInde
   return (
     <div className=" lg:px-80 xl:px-96">
       {/* Image cover  imageUrl */}
-      <div className={`bg-white w-[80%] h-[34vh]  lg:w-48 lg:h-48 m-auto mt-[3vh] md:mt-2 rounded-2xl shadow-2xl`}>
+
+      {/* for website  */}
+      <div className={`bg-white w-[80%] h-[30vh]  lg:w-48 lg:h-48 m-auto mt-[3vh] md:mt-2 rounded-2xl shadow-2xl`}>
+    
+    {/* for mobile  */}
+      {/* <div className={`bg-white w-[80%] h-[34vh]  lg:w-48 lg:h-48 m-auto mt-[3vh] md:mt-2 rounded-2xl shadow-2xl`}> */}
         <img
           src={loadedSongs[currentIndex].imageUrl}
           className="h-full w-full object-cover rounded-2xl shadow-2xl"

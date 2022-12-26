@@ -106,6 +106,10 @@ function Navbar({ darkMode, setdarkMode }) {
             Download Andriod
           </button>
         </a>
+        <br />
+        <p>
+          Note:- This app is for educational purpose only.
+        </p>
         </div>
       </motion.div>
     </>
